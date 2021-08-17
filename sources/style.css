@@ -49,6 +49,7 @@ header a {
     text-decoration: underline 3px #fed9b7;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
+    margin-right: 50%;
 }
 
 .contentText {
@@ -93,5 +94,9 @@ textarea {
         border-right: none;
         padding-bottom: 0.5em;
         border-bottom: 1px solid #fed9b7;
+    }
+
+    .content .header {
+        margin-right: 0;
     }
 }
