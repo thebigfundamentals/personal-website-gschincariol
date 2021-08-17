@@ -91,7 +91,7 @@ textarea {
     .contentLeft {
         padding-right: 0;
         border-right: none;
-        padding-bottom: 1em;
+        padding-bottom: 0.5em;
         border-bottom: 1px solid #fed9b7;
     }
 }
