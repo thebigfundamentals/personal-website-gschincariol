@@ -1,26 +1,36 @@
-const lastTextList = document.querySelector('.lastText');
-const lastTextURL = document.querySelector('.lastTextURL');
-const lastTextTitle = document.querySelector('.textTitle');
+const lastTextList = document.querySelector('.textsList');
 const spinner = document.querySelector('.spinner');
 
-const parser = new RSSParser();
-const CORS_PROXY = "https://api.codetabs.com/v1/proxy?quest="
+const username = `gschincariol`
+const RSSUrl = `https://medium.com/feed/@${username}`;
+const RSSConverter = `https://api.rss2json.com/v1/api.json?rss_url=${RSSUrl}`;
 
 const capitalize = (string) => {
     if (typeof string !== 'string') return ''
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-parser.parseURL(CORS_PROXY + 'https://medium.com/feed/@gschincariol', function (err, feed) {
-    if (err) throw err;
-    console.log(feed.title);
-    lastTextTitle.textContent = capitalize(feed.items[0].title.toLowerCase());
-    lastTextURL.href = feed.items[0].link;
-    for (let i = 1; i <= 9; i++) {
-        let newText = document.createElement('div');
-        newText.className = "lastTextItem";
-        newText.innerHTML = `<a class="lastTextURL" href="${feed.items[i].link}" target="_blank" rel="noopener noreferrer"><p class="textTitle">${capitalize(feed.items[i].title.toLowerCase())}</p></a>`;
-        lastTextList.appendChild(newText)
+const getMediumData = async () => {
+
+    try {
+        const response = await fetch(RSSConverter);
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+const getMediumTexts = async () => {
+    const feed = await getMediumData();
+    const posts = await feed.items;
+    for (let post of posts) {
+        const newText = document.createElement('div');
+        newText.classList = 'lastTextItem';
+        newText.innerHTML = `<a class="lastTextURL" href="${post.link}" target="_blank" rel="noopener noreferrer"><p class="textTitle">${capitalize(post.title.toLowerCase())}</p></a>`;
+        lastTextList.appendChild(newText);
     }
     spinner.classList.toggle('d-none');
-})
+}
+
+getMediumTexts();
