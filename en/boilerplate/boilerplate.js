@@ -1,7 +1,7 @@
 const queryString = window.location.pathname.replace('/en', '');
 
 const langTemplate = document.createElement('div');
-langTemplate.classList = "lang mb-auto ms-auto me-1 text-muted fs-6 fw-light";
+langTemplate.classList = "lang ms-auto me-1 text-muted fs-6 fw-light";
 langTemplate.innerHTML = `<a href="../..${queryString}">pt</a> | <a href="#"> en </a>`;
 
 const headerTemplate = document.createElement('header');
