@@ -6,6 +6,16 @@ body {
     min-height: 100vh;
 }
 
+.lang a {
+    text-decoration: none;
+    color: #6b705c;
+    transition: all 0.2s;
+}
+
+.lang a:hover {
+    color: #a5a58d !important;
+}
+
 header h1 {
     font-family: 'Oswald', sans-serif;
     color: #f07167;

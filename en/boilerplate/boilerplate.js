@@ -1,8 +1,8 @@
-const queryString = window.location.pathname;
+const queryString = window.location.pathname.replace('/en', '');
 
 const langTemplate = document.createElement('div');
 langTemplate.classList = "lang mb-auto ms-auto me-1 text-muted fs-6 fw-light";
-langTemplate.innerHTML = `<a href="#">pt</a> | <a href="/en${queryString}"> en </a>`;
+langTemplate.innerHTML = `<a href="../..${queryString}">pt</a> | <a href="#"> en </a>`;
 
 const headerTemplate = document.createElement('header');
 headerTemplate.classList = "col-md-8 mb-2 text-center"
@@ -13,20 +13,20 @@ menuTemplate.classList = "menu col-md-8 col-lg-6";
 menuTemplate.innerHTML = `<nav class="navbar navbar-light bg-transparent">
 <div class="container-fluid justify-content-evenly">
     <a class="navbar-brand fs-6" href="../">
-        <img src="../images/homeIcon.png" alt="" width="30" class="d-inline-block align-text-center">
-        <span class="d-none d-md-inline-block">início</span>
+        <img src="../../images/homeIcon.png" alt="" width="30" class="d-inline-block align-text-center">
+        <span class="d-none d-md-inline-block">home</span>
     </a>
     <a class="navbar-brand fs-6" href="../writing">
-        <img src="../images/writingIcon.png" alt="" width="30" class="d-inline-block align-text-center">
-        <span class="d-none d-md-inline-block">livros e textos</span>
+        <img src="../../images/writingIcon.png" alt="" width="30" class="d-inline-block align-text-center">
+        <span class="d-none d-md-inline-block">writing</span>
     </a>
     <a class="navbar-brand fs-6" href="../dev">
-        <img src="../images/devIcon.png" alt="" width="30" class="d-inline-block align-text-center">
+        <img src="../../images/devIcon.png" alt="" width="30" class="d-inline-block align-text-center">
         <span class="d-none d-md-inline-block">development</span>
     </a>
     <a class="navbar-brand fs-6" href="../contact">
-        <img src="../images/contactIcon.png" alt="" width="30" class="d-inline-block align-text-center">
-        <span class="d-none d-md-inline-block">fale comigo</span>
+        <img src="../../images/contactIcon.png" alt="" width="30" class="d-inline-block align-text-center">
+        <span class="d-none d-md-inline-block">talk to me</span>
     </a>
 </div>
 </nav>
